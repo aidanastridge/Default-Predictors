@@ -1,6 +1,6 @@
 # Default-Predictors
 
-Link[https://aidanastridge.github.io/Default-Predictors/default_predictors.html]
+[Link](https://aidanastridge.github.io/Default-Predictors/default_predictors.html)
 
 ## About the Data
 
