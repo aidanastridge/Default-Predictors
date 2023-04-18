@@ -1,0 +1,19 @@
+/* css styles */
+.sidebar nav[role="doc-toc"] ul > li > a.active {
+    color: white !important;
+    background-color: #060047;
+    font-weight: bold;
+}
+
+
+a.nav-link:hover {
+      color:  #060047 !important;
+}
+
+.title{
+  color:  #060047 !important;
+}
+
+.level2.h2 {
+  color:  #060047 !important;
+}

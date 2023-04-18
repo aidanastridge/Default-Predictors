@@ -1,0 +1,34 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Default Predictors"
+  search: false
+  navbar:
+    title: false
+    background: white
+    right:
+      - text: "GitHub" 
+        href: https://github.com/aidanastridge
+      - text: "LinkedIn" 
+        href: https://www.linkedin.com/in/aidanastridge/
+      - text: "Twitter" 
+        href: https://twitter.com/aidanastridge
+      - text: "Website"
+        href: https://aidanastridge.com/
+      
+        
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-title: Contents
+    anchor-sections: false
+    toc-depth: 2
+    linkcolor: "#060047"
+    
+
+editor: visual
+
