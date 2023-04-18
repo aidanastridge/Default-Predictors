@@ -9,3 +9,14 @@ The study then used the estimated probability of default as the response variabl
 ## Tools
 - Tidyverse
 - Quarto
+
+## Conclusion
+
+Based on statistical analyses and modeling of credit data, a higher credit balance and a higher payment made towards the previous month’s bill are associated with a lower chance of defaulting on a credit account in the next month.
+
+A higher credit balance indicates that the borrower has more available credit and is not utilizing their full credit limit. Additionally, making a higher payment towards the previous month’s bill suggests that the borrower is able to meet their financial obligations and is less likely to fall behind on their payments.
+
+While delays in payment are significant in predicting default for September, July, and April; August predicts no default in October.
+
+Compared to the expected borrower of Female, Single, and University educated: Male borrowers increased defaulting chances, Married borrowers increased defaulting chances, and graduates that considered themselves “Other” decreased defaulting chances.
+
