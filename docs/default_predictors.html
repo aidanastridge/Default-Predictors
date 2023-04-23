@@ -22,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -138,10 +104,6 @@ div.csl-indent {
     <a class="nav-link" href="https://twitter.com/aidanastridge" rel="" target="">
  <span class="menu-text">Twitter</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://aidanastridge.com/" rel="" target="">
- <span class="menu-text">Website</span></a>
-  </li>  
 </ul>
             <div class="quarto-navbar-tools">
 </div>
@@ -202,7 +164,7 @@ div.csl-indent {
 <h2 data-anchor-id="insight">Insight</h2>
 <p>Based on credit data, a higher credit balance and a higher payment made towards the previous month’s bill are associated with a lower chance of defaulting on a credit account in the next month.</p>
 <p>Compared to the average borrower of Female, Single, and University educated: Male borrowers increased defaulting chances, Married borrowers increased defaulting chances, and graduates that considered themselves “Other” decreased defaulting chances.</p>
-<p>Delays in payment in September, July, and April are significant in predicting default for October. Suprisingly, August predicts the opposite.</p>
+<p>Delays in payment in September, July, and April are significant in predicting default for October. Surprisingly, August predicts the opposite.</p>
 </section>
 <section id="about-the-data" class="level2">
 <h2 data-anchor-id="about-the-data">About the Data</h2>
@@ -212,272 +174,250 @@ div.csl-indent {
 <blockquote class="blockquote">
 <p>The data-set originally had 30,000 values; 70% of the data was taken out by filtering out below 5% and above 95% from a majority of the continuous variables. However, I’ve elected to keep the payment delays per month as it takes out to many variables</p>
 </blockquote>
-<section id="categories" class="level4">
-<h4 data-anchor-id="categories">Categories</h4>
+<section id="variables" class="level4">
+<h4 data-anchor-id="variables">Variables</h4>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>Default next month by Percent</caption>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Default</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Count</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Percent</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Default</td>
+<td style="text-align: right;">1242</td>
 <td style="text-align: right;">14.72</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Did not default</td>
+<td style="text-align: right;">7196</td>
 <td style="text-align: right;">85.28</td>
 </tr>
 </tbody>
 </table>
+
+
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>Marital Status by Percent</caption>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Marital Status</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Default</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Marital Status</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Count</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Group %</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Global %</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
+<td style="text-align: left;">Default</td>
 <td style="text-align: left;">Married</td>
-<td style="text-align: right;">45.43</td>
+<td style="text-align: right;">614</td>
+<td style="text-align: right;">49.44</td>
+<td style="text-align: right;">7.28</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">Default</td>
+<td style="text-align: left;">Others</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">1.61</td>
+<td style="text-align: right;">0.24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Default</td>
 <td style="text-align: left;">Single</td>
-<td style="text-align: right;">53.29</td>
+<td style="text-align: right;">608</td>
+<td style="text-align: right;">48.95</td>
+<td style="text-align: right;">7.21</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Did not default</td>
+<td style="text-align: left;">Married</td>
+<td style="text-align: right;">3219</td>
+<td style="text-align: right;">44.73</td>
+<td style="text-align: right;">38.15</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">Did not default</td>
 <td style="text-align: left;">Others</td>
-<td style="text-align: right;">1.28</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">1.22</td>
+<td style="text-align: right;">1.04</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Did not default</td>
+<td style="text-align: left;">Single</td>
+<td style="text-align: right;">3889</td>
+<td style="text-align: right;">54.04</td>
+<td style="text-align: right;">46.09</td>
 </tr>
 </tbody>
 </table>
+
+
 </div>
-</div>
-<div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>Highest Educational Level by Percent</caption>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Sex</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Default</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Sex</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Count</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Group %</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Global %</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Graduate</td>
-<td style="text-align: right;">31.82</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">University</td>
-<td style="text-align: right;">50.84</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">High School</td>
-<td style="text-align: right;">15.87</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Others</td>
-<td style="text-align: right;">1.47</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>Sex by Percent</caption>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Male</td>
-<td style="text-align: right;">38.27</td>
-</tr>
-<tr class="even">
+<td style="text-align: left;">Default</td>
 <td style="text-align: left;">Female</td>
-<td style="text-align: right;">61.73</td>
+<td style="text-align: right;">708</td>
+<td style="text-align: right;">57.00</td>
+<td style="text-align: right;">8.39</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Default</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">534</td>
+<td style="text-align: right;">43.00</td>
+<td style="text-align: right;">6.33</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Did not default</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">4501</td>
+<td style="text-align: right;">62.55</td>
+<td style="text-align: right;">53.34</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Did not default</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">2695</td>
+<td style="text-align: right;">37.45</td>
+<td style="text-align: right;">31.94</td>
 </tr>
 </tbody>
 </table>
+
+
 </div>
-</div>
-</section>
-<section id="expected-values" class="level4">
-<h4 data-anchor-id="expected-values">Expected Values</h4>
-<div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Education</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;">Balance</th>
-<th style="text-align: left;">Age</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Default</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Education</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Count</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Group %</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Global %</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Min. : 30000</td>
-<td style="text-align: left;">Min. :24.0</td>
+<td style="text-align: left;">Default</td>
+<td style="text-align: left;">Graduate</td>
+<td style="text-align: right;">337</td>
+<td style="text-align: right;">27.13</td>
+<td style="text-align: right;">3.99</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">1st Qu.: 70000</td>
-<td style="text-align: left;">1st Qu.:28.0</td>
+<td style="text-align: left;">Default</td>
+<td style="text-align: left;">High School</td>
+<td style="text-align: right;">224</td>
+<td style="text-align: right;">18.04</td>
+<td style="text-align: right;">2.65</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Median :130000</td>
-<td style="text-align: left;">Median :34.0</td>
+<td style="text-align: left;">Default</td>
+<td style="text-align: left;">Others</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: right;">0.12</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Mean :148987</td>
-<td style="text-align: left;">Mean :34.7</td>
+<td style="text-align: left;">Default</td>
+<td style="text-align: left;">University</td>
+<td style="text-align: right;">671</td>
+<td style="text-align: right;">54.03</td>
+<td style="text-align: right;">7.95</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">3rd Qu.:210000</td>
-<td style="text-align: left;">3rd Qu.:40.0</td>
+<td style="text-align: left;">Did not default</td>
+<td style="text-align: left;">Graduate</td>
+<td style="text-align: right;">2348</td>
+<td style="text-align: right;">32.63</td>
+<td style="text-align: right;">27.83</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Max. :420000</td>
-<td style="text-align: left;">Max. :52.0</td>
+<td style="text-align: left;">Did not default</td>
+<td style="text-align: left;">High School</td>
+<td style="text-align: right;">1115</td>
+<td style="text-align: right;">15.49</td>
+<td style="text-align: right;">13.21</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Did not default</td>
+<td style="text-align: left;">Others</td>
+<td style="text-align: right;">114</td>
+<td style="text-align: right;">1.58</td>
+<td style="text-align: right;">1.35</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Did not default</td>
+<td style="text-align: left;">University</td>
+<td style="text-align: right;">3619</td>
+<td style="text-align: right;">50.29</td>
+<td style="text-align: right;">42.89</td>
 </tr>
 </tbody>
 </table>
+
+
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
-<caption>April 2005 — September 2005 in Payments and Bills</caption>
-<colgroup>
-<col style="width: 1%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 7%">
-</colgroup>
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>Balance and Age</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;">2005-04-01 Payment</th>
-<th style="text-align: left;">2005-05-01 Payment</th>
-<th style="text-align: left;">2005-06-01 Payment</th>
-<th style="text-align: left;">2005-07-01 Payment</th>
-<th style="text-align: left;">2005-08-01 Payment</th>
-<th style="text-align: left;">2005-09-01 Payment</th>
-<th style="text-align: left;">2005-04-01 Bill</th>
-<th style="text-align: left;">2005-05-01 Bill</th>
-<th style="text-align: left;">2005-06-01 Bill</th>
-<th style="text-align: left;">2005-07-01 Bill</th>
-<th style="text-align: left;">2005-08-01 Bill</th>
-<th style="text-align: left;">2005-09-01 Bill</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Balance</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Age</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Min. : 1</td>
-<td style="text-align: left;">Min. : 1</td>
-<td style="text-align: left;">Min. : 1</td>
-<td style="text-align: left;">Min. : 1</td>
-<td style="text-align: left;">Min. : 1</td>
-<td style="text-align: left;">Min. : 1</td>
-<td style="text-align: left;">Min. : 22</td>
-<td style="text-align: left;">Min. : 4</td>
-<td style="text-align: left;">Min. : 68</td>
-<td style="text-align: left;">Min. : 26</td>
-<td style="text-align: left;">Min. : 49</td>
-<td style="text-align: left;">Min. : 73</td>
+<td style="text-align: left;">Default</td>
+<td style="text-align: right;">120717</td>
+<td style="text-align: right;">35.00</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">1st Qu.: 1000</td>
-<td style="text-align: left;">1st Qu.: 1004</td>
-<td style="text-align: left;">1st Qu.: 1000</td>
-<td style="text-align: left;">1st Qu.: 1336</td>
-<td style="text-align: left;">1st Qu.: 1699</td>
-<td style="text-align: left;">1st Qu.: 1800</td>
-<td style="text-align: left;">1st Qu.: 9481</td>
-<td style="text-align: left;">1st Qu.: 10170</td>
-<td style="text-align: left;">1st Qu.: 11724</td>
-<td style="text-align: left;">1st Qu.: 13055</td>
-<td style="text-align: left;">1st Qu.: 13730</td>
-<td style="text-align: left;">1st Qu.: 14622</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Median : 2000</td>
-<td style="text-align: left;">Median : 2000</td>
-<td style="text-align: left;">Median : 2000</td>
-<td style="text-align: left;">Median : 2200</td>
-<td style="text-align: left;">Median : 2655</td>
-<td style="text-align: left;">Median : 2979</td>
-<td style="text-align: left;">Median : 28774</td>
-<td style="text-align: left;">Median : 29292</td>
-<td style="text-align: left;">Median : 33498</td>
-<td style="text-align: left;">Median : 41424</td>
-<td style="text-align: left;">Median : 45199</td>
-<td style="text-align: left;">Median : 47113</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Mean : 2884</td>
-<td style="text-align: left;">Mean : 2830</td>
-<td style="text-align: left;">Mean : 2783</td>
-<td style="text-align: left;">Mean : 3048</td>
-<td style="text-align: left;">Mean : 3422</td>
-<td style="text-align: left;">Mean : 3546</td>
-<td style="text-align: left;">Mean : 40958</td>
-<td style="text-align: left;">Mean : 42168</td>
-<td style="text-align: left;">Mean : 45406</td>
-<td style="text-align: left;">Mean : 49894</td>
-<td style="text-align: left;">Mean : 52943</td>
-<td style="text-align: left;">Mean : 55340</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">3rd Qu.: 4000</td>
-<td style="text-align: left;">3rd Qu.: 3922</td>
-<td style="text-align: left;">3rd Qu.: 3782</td>
-<td style="text-align: left;">3rd Qu.: 4000</td>
-<td style="text-align: left;">3rd Qu.: 4584</td>
-<td style="text-align: left;">3rd Qu.: 4872</td>
-<td style="text-align: left;">3rd Qu.: 62012</td>
-<td style="text-align: left;">3rd Qu.: 65020</td>
-<td style="text-align: left;">3rd Qu.: 69496</td>
-<td style="text-align: left;">3rd Qu.: 76127</td>
-<td style="text-align: left;">3rd Qu.: 80400</td>
-<td style="text-align: left;">3rd Qu.: 83850</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Max. :17120</td>
-<td style="text-align: left;">Max. :15868</td>
-<td style="text-align: left;">Max. :16014</td>
-<td style="text-align: left;">Max. :17475</td>
-<td style="text-align: left;">Max. :19000</td>
-<td style="text-align: left;">Max. :18400</td>
-<td style="text-align: left;">Max. :161902</td>
-<td style="text-align: left;">Max. :164717</td>
-<td style="text-align: left;">Max. :173455</td>
-<td style="text-align: left;">Max. :184900</td>
-<td style="text-align: left;">Max. :194699</td>
-<td style="text-align: left;">Max. :200996</td>
+<td style="text-align: left;">Did not default</td>
+<td style="text-align: right;">153866</td>
+<td style="text-align: right;">34.65</td>
 </tr>
 </tbody>
 </table>
+
+
 </div>
 </div>
 <table class="table">
 <thead>
 <tr class="header">
 <th>Category</th>
-<th>Expected Value</th>
+<th>Expected Values</th>
 </tr>
 </thead>
 <tbody>
@@ -505,20 +445,66 @@ div.csl-indent {
 <td>Balance</td>
 <td>147,357</td>
 </tr>
-<tr class="odd">
-<td>Growth in Payment (April - September)</td>
-<td>18%</td>
-</tr>
-<tr class="even">
-<td>Growth in Bill (April - September)</td>
-<td>27%</td>
-</tr>
 </tbody>
 </table>
 </section>
-<section id="payment-delays" class="level4">
-<h4 data-anchor-id="payment-delays">Payment Delays</h4>
+<section id="bills-payments-and-delays" class="level4">
+<h4 data-anchor-id="bills-payments-and-delays">Bills, Payments, and Delays</h4>
 <div class="cell">
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>April 2004 - September 2005 Bill</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Default</td>
+<td style="text-align: right;">40958</td>
+<td style="text-align: right;">42168</td>
+<td style="text-align: right;">45406</td>
+<td style="text-align: right;">49894</td>
+<td style="text-align: right;">52943</td>
+<td style="text-align: right;">55340</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Did not default</td>
+<td style="text-align: right;">40958</td>
+<td style="text-align: right;">42168</td>
+<td style="text-align: right;">45406</td>
+<td style="text-align: right;">49894</td>
+<td style="text-align: right;">52943</td>
+<td style="text-align: right;">55340</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<caption>April 2004 - September 2005 Payment</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Default</td>
+<td style="text-align: right;">2884</td>
+<td style="text-align: right;">2830</td>
+<td style="text-align: right;">2783</td>
+<td style="text-align: right;">3048</td>
+<td style="text-align: right;">3422</td>
+<td style="text-align: right;">3546</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Did not default</td>
+<td style="text-align: right;">2884</td>
+<td style="text-align: right;">2830</td>
+<td style="text-align: right;">2783</td>
+<td style="text-align: right;">3048</td>
+<td style="text-align: right;">3422</td>
+<td style="text-align: right;">3546</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <caption>April 2005 Payment Delays</caption>
@@ -767,52 +753,31 @@ div.csl-indent {
 </div>
 </div>
 </section>
-<section id="defaults-by-category" class="level4">
-<h4 data-anchor-id="defaults-by-category">Defaults by Category</h4>
+<section id="defaulting-next-month-by-age-and-balance" class="level4">
+<h4 data-anchor-id="defaulting-next-month-by-age-and-balance">Defaulting next month by Age and Balance</h4>
 <div class="cell">
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-fb1866c4354bb59663e1" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-fb1866c4354bb59663e1">{"x":{"data":[{"orientation":"v","width":[0.9,0.9],"base":[53.34,31.94],"x":[1,2],"y":[8.39,6.33],"text":["Sex: Female<br />Percent:  8.39<br />Default: Default","Sex: Male<br />Percent:  6.33<br />Default: Default"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(6,0,71,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Default","legendgroup":"Default","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9],"base":[0,0],"x":[1,2],"y":[53.34,31.94],"text":["Sex: Female<br />Percent: 53.34<br />Default: Did not default","Sex: Male<br />Percent: 31.94<br />Default: Did not default"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(179,0,94,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Did not default","legendgroup":"Did not default","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":121.826771653543,"r":75.5905511811023,"b":121.169237406968,"l":105.544889080646},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,2.6],"tickmode":"array","ticktext":["Female","Male"],"tickvals":[1,2],"categoryorder":"array","categoryarray":["Female","Male"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-3.0865,64.8165],"tickmode":"array","ticktext":["0","20","40","60"],"tickvals":[0,20,40,60],"categoryorder":"array","categoryarray":["0","20","40","60"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Percent %","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"10dce11ac0b1":{"x":{},"y":{},"fill":{},"type":"bar"}},"cur_data":"10dce11ac0b1","visdat":{"10dce11ac0b1":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-efd02cf622dd062ef46a" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-efd02cf622dd062ef46a">{"x":{"data":[{"orientation":"v","width":[0.9,0.9,0.9],"base":[38.15,1.04,46.09],"x":[3,1,2],"y":[7.28,0.24,7.21],"text":["Marriage: Married<br />Percent:  7.28<br />Default: Default","Marriage: Others<br />Percent:  0.24<br />Default: Default","Marriage: Single<br />Percent:  7.21<br />Default: Default"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(6,0,71,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Default","legendgroup":"Default","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9],"base":[0,0,0],"x":[3,1,2],"y":[38.15,1.04,46.09],"text":["Marriage: Married<br />Percent: 38.15<br />Default: Did not default","Marriage: Others<br />Percent:  1.04<br />Default: Did not default","Marriage: Single<br />Percent: 46.09<br />Default: Did not default"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(179,0,94,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Did not default","legendgroup":"Did not default","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":121.826771653543,"r":75.5905511811023,"b":121.169237406968,"l":105.544889080646},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,3.6],"tickmode":"array","ticktext":["Others","Single","Married"],"tickvals":[1,2,3],"categoryorder":"array","categoryarray":["Others","Single","Married"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-2.665,55.965],"tickmode":"array","ticktext":["0","20","40"],"tickvals":[0,20,40],"categoryorder":"array","categoryarray":["0","20","40"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Percent %","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"10dce47129849":{"x":{},"y":{},"fill":{},"type":"bar"}},"cur_data":"10dce47129849","visdat":{"10dce47129849":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-882791cf5b08532e9d9d" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-882791cf5b08532e9d9d">{"x":{"data":[{"orientation":"v","width":[0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.900000000000002,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006],"base":[3.59,4.1,4.85,4.97,4.59,5.45,4.47,3.56,3.64,3.6,3.61,3.35,3.2,3.05,2.92,3.05,2.74,2.54,2.47,2.19,2.19,2.24,1.73,1.53,1.29,1.35,1.11,1.15,0.77],"x":[24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52],"y":[0.66,0.94,0.7,0.85,0.81,0.73,0.7,0.59,0.51,0.5,0.63,0.53,0.56,0.63,0.45,0.51,0.56,0.49,0.59,0.27,0.41,0.27,0.31,0.28,0.25,0.31,0.21,0.27,0.19],"text":["Age: 24<br />Percent: 0.66<br />Default: Default","Age: 25<br />Percent: 0.94<br />Default: Default","Age: 26<br />Percent: 0.70<br />Default: Default","Age: 27<br />Percent: 0.85<br />Default: Default","Age: 28<br />Percent: 0.81<br />Default: Default","Age: 29<br />Percent: 0.73<br />Default: Default","Age: 30<br />Percent: 0.70<br />Default: Default","Age: 31<br />Percent: 0.59<br />Default: Default","Age: 32<br />Percent: 0.51<br />Default: Default","Age: 33<br />Percent: 0.50<br />Default: Default","Age: 34<br />Percent: 0.63<br />Default: Default","Age: 35<br />Percent: 0.53<br />Default: Default","Age: 36<br />Percent: 0.56<br />Default: Default","Age: 37<br />Percent: 0.63<br />Default: Default","Age: 38<br />Percent: 0.45<br />Default: Default","Age: 39<br />Percent: 0.51<br />Default: Default","Age: 40<br />Percent: 0.56<br />Default: Default","Age: 41<br />Percent: 0.49<br />Default: Default","Age: 42<br />Percent: 0.59<br />Default: Default","Age: 43<br />Percent: 0.27<br />Default: Default","Age: 44<br />Percent: 0.41<br />Default: Default","Age: 45<br />Percent: 0.27<br />Default: Default","Age: 46<br />Percent: 0.31<br />Default: Default","Age: 47<br />Percent: 0.28<br />Default: Default","Age: 48<br />Percent: 0.25<br />Default: Default","Age: 49<br />Percent: 0.31<br />Default: Default","Age: 50<br />Percent: 0.21<br />Default: Default","Age: 51<br />Percent: 0.27<br />Default: Default","Age: 52<br />Percent: 0.19<br />Default: Default"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(6,0,71,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Default","legendgroup":"Default","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.900000000000002,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52],"y":[3.59,4.1,4.85,4.97,4.59,5.45,4.47,3.56,3.64,3.6,3.61,3.35,3.2,3.05,2.92,3.05,2.74,2.54,2.47,2.19,2.19,2.24,1.73,1.53,1.29,1.35,1.11,1.15,0.77],"text":["Age: 24<br />Percent: 3.59<br />Default: Did not default","Age: 25<br />Percent: 4.10<br />Default: Did not default","Age: 26<br />Percent: 4.85<br />Default: Did not default","Age: 27<br />Percent: 4.97<br />Default: Did not default","Age: 28<br />Percent: 4.59<br />Default: Did not default","Age: 29<br />Percent: 5.45<br />Default: Did not default","Age: 30<br />Percent: 4.47<br />Default: Did not default","Age: 31<br />Percent: 3.56<br />Default: Did not default","Age: 32<br />Percent: 3.64<br />Default: Did not default","Age: 33<br />Percent: 3.60<br />Default: Did not default","Age: 34<br />Percent: 3.61<br />Default: Did not default","Age: 35<br />Percent: 3.35<br />Default: Did not default","Age: 36<br />Percent: 3.20<br />Default: Did not default","Age: 37<br />Percent: 3.05<br />Default: Did not default","Age: 38<br />Percent: 2.92<br />Default: Did not default","Age: 39<br />Percent: 3.05<br />Default: Did not default","Age: 40<br />Percent: 2.74<br />Default: Did not default","Age: 41<br />Percent: 2.54<br />Default: Did not default","Age: 42<br />Percent: 2.47<br />Default: Did not default","Age: 43<br />Percent: 2.19<br />Default: Did not default","Age: 44<br />Percent: 2.19<br />Default: Did not default","Age: 45<br />Percent: 2.24<br />Default: Did not default","Age: 46<br />Percent: 1.73<br />Default: Did not default","Age: 47<br />Percent: 1.53<br />Default: Did not default","Age: 48<br />Percent: 1.29<br />Default: Did not default","Age: 49<br />Percent: 1.35<br />Default: Did not default","Age: 50<br />Percent: 1.11<br />Default: Did not default","Age: 51<br />Percent: 1.15<br />Default: Did not default","Age: 52<br />Percent: 0.77<br />Default: Did not default"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(179,0,94,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Did not default","legendgroup":"Did not default","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":121.826771653543,"r":75.5905511811023,"b":135.781109553087,"l":99.7001402221982},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[22.105,53.895],"tickmode":"array","ticktext":["30","40","50"],"tickvals":[30,40,50],"categoryorder":"array","categoryarray":["30","40","50"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Age","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.309,6.489],"tickmode":"array","ticktext":["0","2","4","6"],"tickvals":[0,2,4,6],"categoryorder":"array","categoryarray":["0","2","4","6"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Percent %","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"65cb4a6e6db4":{"x":{},"y":{},"fill":{},"type":"bar"}},"cur_data":"65cb4a6e6db4","visdat":{"65cb4a6e6db4":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-55bf39e777b372c8a6ca" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-55bf39e777b372c8a6ca">{"x":{"data":[{"orientation":"v","width":[0.9,0.9,0.9,0.9],"base":[27.83,13.21,1.35,42.89],"x":[4,2,1,3],"y":[3.99,2.65,0.12,7.95],"text":["Education: Graduate<br />Percent:  3.99<br />Default: Default","Education: High School<br />Percent:  2.65<br />Default: Default","Education: Others<br />Percent:  0.12<br />Default: Default","Education: University<br />Percent:  7.95<br />Default: Default"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(6,0,71,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Default","legendgroup":"Default","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.9,0.9,0.9,0.9],"base":[0,0,0,0],"x":[4,2,1,3],"y":[27.83,13.21,1.35,42.89],"text":["Education: Graduate<br />Percent: 27.83<br />Default: Did not default","Education: High School<br />Percent: 13.21<br />Default: Did not default","Education: Others<br />Percent:  1.35<br />Default: Did not default","Education: University<br />Percent: 42.89<br />Default: Did not default"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(179,0,94,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Did not default","legendgroup":"Did not default","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":121.826771653543,"r":75.5905511811023,"b":121.169237406968,"l":105.544889080646},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,4.6],"tickmode":"array","ticktext":["Others","High School","University","Graduate"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["Others","High School","University","Graduate"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-2.542,53.382],"tickmode":"array","ticktext":["0","10","20","30","40","50"],"tickvals":[0,10,20,30,40,50],"categoryorder":"array","categoryarray":["0","10","20","30","40","50"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Percent %","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"10dce5e665c07":{"x":{},"y":{},"fill":{},"type":"bar"}},"cur_data":"10dce5e665c07","visdat":{"10dce5e665c07":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-76518392ac7cda525774" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-76518392ac7cda525774">{"x":{"data":[{"orientation":"v","width":[0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.900000000000002,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006],"base":[3.59,4.1,4.85,4.97,4.59,5.45,4.47,3.56,3.64,3.6,3.61,3.35,3.2,3.05,2.92,3.05,2.74,2.54,2.47,2.19,2.19,2.24,1.73,1.53,1.29,1.35,1.11,1.15,0.77],"x":[24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52],"y":[0.66,0.94,0.7,0.85,0.81,0.73,0.7,0.59,0.51,0.5,0.63,0.53,0.56,0.63,0.45,0.51,0.56,0.49,0.59,0.27,0.41,0.27,0.31,0.28,0.25,0.31,0.21,0.27,0.19],"text":["Age: 24<br />Percent: 0.66<br />Default: Default","Age: 25<br />Percent: 0.94<br />Default: Default","Age: 26<br />Percent: 0.70<br />Default: Default","Age: 27<br />Percent: 0.85<br />Default: Default","Age: 28<br />Percent: 0.81<br />Default: Default","Age: 29<br />Percent: 0.73<br />Default: Default","Age: 30<br />Percent: 0.70<br />Default: Default","Age: 31<br />Percent: 0.59<br />Default: Default","Age: 32<br />Percent: 0.51<br />Default: Default","Age: 33<br />Percent: 0.50<br />Default: Default","Age: 34<br />Percent: 0.63<br />Default: Default","Age: 35<br />Percent: 0.53<br />Default: Default","Age: 36<br />Percent: 0.56<br />Default: Default","Age: 37<br />Percent: 0.63<br />Default: Default","Age: 38<br />Percent: 0.45<br />Default: Default","Age: 39<br />Percent: 0.51<br />Default: Default","Age: 40<br />Percent: 0.56<br />Default: Default","Age: 41<br />Percent: 0.49<br />Default: Default","Age: 42<br />Percent: 0.59<br />Default: Default","Age: 43<br />Percent: 0.27<br />Default: Default","Age: 44<br />Percent: 0.41<br />Default: Default","Age: 45<br />Percent: 0.27<br />Default: Default","Age: 46<br />Percent: 0.31<br />Default: Default","Age: 47<br />Percent: 0.28<br />Default: Default","Age: 48<br />Percent: 0.25<br />Default: Default","Age: 49<br />Percent: 0.31<br />Default: Default","Age: 50<br />Percent: 0.21<br />Default: Default","Age: 51<br />Percent: 0.27<br />Default: Default","Age: 52<br />Percent: 0.19<br />Default: Default"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(6,0,71,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Default","legendgroup":"Default","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.899999999999999,0.900000000000002,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006,0.900000000000006],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52],"y":[3.59,4.1,4.85,4.97,4.59,5.45,4.47,3.56,3.64,3.6,3.61,3.35,3.2,3.05,2.92,3.05,2.74,2.54,2.47,2.19,2.19,2.24,1.73,1.53,1.29,1.35,1.11,1.15,0.77],"text":["Age: 24<br />Percent: 3.59<br />Default: Did not default","Age: 25<br />Percent: 4.10<br />Default: Did not default","Age: 26<br />Percent: 4.85<br />Default: Did not default","Age: 27<br />Percent: 4.97<br />Default: Did not default","Age: 28<br />Percent: 4.59<br />Default: Did not default","Age: 29<br />Percent: 5.45<br />Default: Did not default","Age: 30<br />Percent: 4.47<br />Default: Did not default","Age: 31<br />Percent: 3.56<br />Default: Did not default","Age: 32<br />Percent: 3.64<br />Default: Did not default","Age: 33<br />Percent: 3.60<br />Default: Did not default","Age: 34<br />Percent: 3.61<br />Default: Did not default","Age: 35<br />Percent: 3.35<br />Default: Did not default","Age: 36<br />Percent: 3.20<br />Default: Did not default","Age: 37<br />Percent: 3.05<br />Default: Did not default","Age: 38<br />Percent: 2.92<br />Default: Did not default","Age: 39<br />Percent: 3.05<br />Default: Did not default","Age: 40<br />Percent: 2.74<br />Default: Did not default","Age: 41<br />Percent: 2.54<br />Default: Did not default","Age: 42<br />Percent: 2.47<br />Default: Did not default","Age: 43<br />Percent: 2.19<br />Default: Did not default","Age: 44<br />Percent: 2.19<br />Default: Did not default","Age: 45<br />Percent: 2.24<br />Default: Did not default","Age: 46<br />Percent: 1.73<br />Default: Did not default","Age: 47<br />Percent: 1.53<br />Default: Did not default","Age: 48<br />Percent: 1.29<br />Default: Did not default","Age: 49<br />Percent: 1.35<br />Default: Did not default","Age: 50<br />Percent: 1.11<br />Default: Did not default","Age: 51<br />Percent: 1.15<br />Default: Did not default","Age: 52<br />Percent: 0.77<br />Default: Did not default"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(179,0,94,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Did not default","legendgroup":"Did not default","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":121.826771653543,"r":75.5905511811023,"b":135.781109553087,"l":99.7001402221982},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[22.105,53.895],"tickmode":"array","ticktext":["30","40","50"],"tickvals":[30,40,50],"categoryorder":"array","categoryarray":["30","40","50"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Age","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.309,6.489],"tickmode":"array","ticktext":["0","2","4","6"],"tickvals":[0,2,4,6],"categoryorder":"array","categoryarray":["0","2","4","6"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Percent %","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"10dce1b5a5490":{"x":{},"y":{},"fill":{},"type":"bar"}},"cur_data":"10dce1b5a5490","visdat":{"10dce1b5a5490":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-2cf169b451df8f16596f" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-2cf169b451df8f16596f">{"x":{"data":[{"orientation":"v","width":[6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000],"base":[2.82057359563878,0.438492533775776,12.3014932448447,3.176108082484,2.97463853993837,5.77150983645414,2.2280161175634,3.72126096231334,3.05759658686893,2.74946669826973,2.96278739037687,3.29461957809908,3.60274946669827,2.2280161175634,2.33467646361697,3.53164256932922,0.722920123251955,4.34937188907324,2.52429485660109,1.67101208817255,2.58355060440863,1.4339890969424,1.07845461009718,1.67101208817255,0.794027020621,1.32732875088884,1.06660346053567,1.23251955439678,1.07845461009718,0.93624081535909,0.485897132021806,0.580706328513866,0.580706328513866,1.54064944299597,0.319981038160702,0.533301730267836,0.805878170182508,0.177767243422612,0.462194832898791],"x":[30000,40000,50000,60000,70000,80000,90000,100000,110000,120000,130000,140000,150000,160000,170000,180000,190000,200000,210000,220000,230000,240000,250000,260000,270000,280000,290000,300000,310000,320000,330000,340000,350000,360000,380000,390000,400000,410000,420000],"y":[1.01919886228964,0.154064944299597,2.99834083906139,0.758473571936478,0.734771272813463,1.20881725527376,0.557004029390851,0.758473571936478,0.414790234652761,0.414790234652761,0.474045982460299,0.616259777198388,0.616259777198388,0.296278739037687,0.225171841668642,0.557004029390851,0.189618392984119,0.402939085091254,0.355534486845224,0.14221379473809,0.319981038160702,0.213320692107134,0.0711068973690447,0.237022991230149,0.0711068973690447,0.14221379473809,0.130362645176582,0.118511495615075,0.0355534486845224,0.0355534486845224,0.0355534486845224,0.0474045982460298,0.0118511495615075,0.177767243422612,0.0118511495615075,0.0355534486845224,0.0829580469305523,0.0118511495615075,0.0355534486845224],"text":["Balance:  30000<br />Default: Default<br />(count)/sum(count) * 100:  1.01920","Balance:  40000<br />Default: Default<br />(count)/sum(count) * 100:  0.15406","Balance:  50000<br />Default: Default<br />(count)/sum(count) * 100:  2.99834","Balance:  60000<br />Default: Default<br />(count)/sum(count) * 100:  0.75847","Balance:  70000<br />Default: Default<br />(count)/sum(count) * 100:  0.73477","Balance:  80000<br />Default: Default<br />(count)/sum(count) * 100:  1.20882","Balance:  90000<br />Default: Default<br />(count)/sum(count) * 100:  0.55700","Balance: 100000<br />Default: Default<br />(count)/sum(count) * 100:  0.75847","Balance: 110000<br />Default: Default<br />(count)/sum(count) * 100:  0.41479","Balance: 120000<br />Default: Default<br />(count)/sum(count) * 100:  0.41479","Balance: 130000<br />Default: Default<br />(count)/sum(count) * 100:  0.47405","Balance: 140000<br />Default: Default<br />(count)/sum(count) * 100:  0.61626","Balance: 150000<br />Default: Default<br />(count)/sum(count) * 100:  0.61626","Balance: 160000<br />Default: Default<br />(count)/sum(count) * 100:  0.29628","Balance: 170000<br />Default: Default<br />(count)/sum(count) * 100:  0.22517","Balance: 180000<br />Default: Default<br />(count)/sum(count) * 100:  0.55700","Balance: 190000<br />Default: Default<br />(count)/sum(count) * 100:  0.18962","Balance: 200000<br />Default: Default<br />(count)/sum(count) * 100:  0.40294","Balance: 210000<br />Default: Default<br />(count)/sum(count) * 100:  0.35553","Balance: 220000<br />Default: Default<br />(count)/sum(count) * 100:  0.14221","Balance: 230000<br />Default: Default<br />(count)/sum(count) * 100:  0.31998","Balance: 240000<br />Default: Default<br />(count)/sum(count) * 100:  0.21332","Balance: 250000<br />Default: Default<br />(count)/sum(count) * 100:  0.07111","Balance: 260000<br />Default: Default<br />(count)/sum(count) * 100:  0.23702","Balance: 270000<br />Default: Default<br />(count)/sum(count) * 100:  0.07111","Balance: 280000<br />Default: Default<br />(count)/sum(count) * 100:  0.14221","Balance: 290000<br />Default: Default<br />(count)/sum(count) * 100:  0.13036","Balance: 300000<br />Default: Default<br />(count)/sum(count) * 100:  0.11851","Balance: 310000<br />Default: Default<br />(count)/sum(count) * 100:  0.03555","Balance: 320000<br />Default: Default<br />(count)/sum(count) * 100:  0.03555","Balance: 330000<br />Default: Default<br />(count)/sum(count) * 100:  0.03555","Balance: 340000<br />Default: Default<br />(count)/sum(count) * 100:  0.04740","Balance: 350000<br />Default: Default<br />(count)/sum(count) * 100:  0.01185","Balance: 360000<br />Default: Default<br />(count)/sum(count) * 100:  0.17777","Balance: 380000<br />Default: Default<br />(count)/sum(count) * 100:  0.01185","Balance: 390000<br />Default: Default<br />(count)/sum(count) * 100:  0.03555","Balance: 400000<br />Default: Default<br />(count)/sum(count) * 100:  0.08296","Balance: 410000<br />Default: Default<br />(count)/sum(count) * 100:  0.01185","Balance: 420000<br />Default: Default<br />(count)/sum(count) * 100:  0.03555"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(6,0,71,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Default","legendgroup":"Default","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[30000,40000,50000,60000,70000,80000,90000,100000,110000,120000,130000,140000,150000,160000,170000,180000,190000,200000,210000,220000,230000,240000,250000,260000,270000,280000,290000,300000,310000,320000,330000,340000,350000,360000,370000,380000,390000,400000,410000,420000],"y":[2.82057359563878,0.438492533775776,12.3014932448447,3.176108082484,2.97463853993837,5.77150983645414,2.2280161175634,3.72126096231334,3.05759658686893,2.74946669826973,2.96278739037687,3.29461957809908,3.60274946669827,2.2280161175634,2.33467646361697,3.53164256932922,0.722920123251955,4.34937188907324,2.52429485660109,1.67101208817255,2.58355060440863,1.4339890969424,1.07845461009718,1.67101208817255,0.794027020621,1.32732875088884,1.06660346053567,1.23251955439678,1.07845461009718,0.93624081535909,0.485897132021806,0.580706328513866,0.580706328513866,1.54064944299597,0.130362645176582,0.319981038160702,0.533301730267836,0.805878170182508,0.177767243422612,0.462194832898791],"text":["Balance:  30000<br />Default: Did not default<br />(count)/sum(count) * 100:  2.82057","Balance:  40000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.43849","Balance:  50000<br />Default: Did not default<br />(count)/sum(count) * 100: 12.30149","Balance:  60000<br />Default: Did not default<br />(count)/sum(count) * 100:  3.17611","Balance:  70000<br />Default: Did not default<br />(count)/sum(count) * 100:  2.97464","Balance:  80000<br />Default: Did not default<br />(count)/sum(count) * 100:  5.77151","Balance:  90000<br />Default: Did not default<br />(count)/sum(count) * 100:  2.22802","Balance: 100000<br />Default: Did not default<br />(count)/sum(count) * 100:  3.72126","Balance: 110000<br />Default: Did not default<br />(count)/sum(count) * 100:  3.05760","Balance: 120000<br />Default: Did not default<br />(count)/sum(count) * 100:  2.74947","Balance: 130000<br />Default: Did not default<br />(count)/sum(count) * 100:  2.96279","Balance: 140000<br />Default: Did not default<br />(count)/sum(count) * 100:  3.29462","Balance: 150000<br />Default: Did not default<br />(count)/sum(count) * 100:  3.60275","Balance: 160000<br />Default: Did not default<br />(count)/sum(count) * 100:  2.22802","Balance: 170000<br />Default: Did not default<br />(count)/sum(count) * 100:  2.33468","Balance: 180000<br />Default: Did not default<br />(count)/sum(count) * 100:  3.53164","Balance: 190000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.72292","Balance: 200000<br />Default: Did not default<br />(count)/sum(count) * 100:  4.34937","Balance: 210000<br />Default: Did not default<br />(count)/sum(count) * 100:  2.52429","Balance: 220000<br />Default: Did not default<br />(count)/sum(count) * 100:  1.67101","Balance: 230000<br />Default: Did not default<br />(count)/sum(count) * 100:  2.58355","Balance: 240000<br />Default: Did not default<br />(count)/sum(count) * 100:  1.43399","Balance: 250000<br />Default: Did not default<br />(count)/sum(count) * 100:  1.07845","Balance: 260000<br />Default: Did not default<br />(count)/sum(count) * 100:  1.67101","Balance: 270000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.79403","Balance: 280000<br />Default: Did not default<br />(count)/sum(count) * 100:  1.32733","Balance: 290000<br />Default: Did not default<br />(count)/sum(count) * 100:  1.06660","Balance: 300000<br />Default: Did not default<br />(count)/sum(count) * 100:  1.23252","Balance: 310000<br />Default: Did not default<br />(count)/sum(count) * 100:  1.07845","Balance: 320000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.93624","Balance: 330000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.48590","Balance: 340000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.58071","Balance: 350000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.58071","Balance: 360000<br />Default: Did not default<br />(count)/sum(count) * 100:  1.54065","Balance: 370000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.13036","Balance: 380000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.31998","Balance: 390000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.53330","Balance: 400000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.80588","Balance: 410000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.17777","Balance: 420000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.46219"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(179,0,94,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Did not default","legendgroup":"Did not default","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":121.826771653543,"r":75.5905511811023,"b":135.781109553087,"l":105.544889080646},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[7200,442800],"tickmode":"array","ticktext":["100000","200000","300000","400000"],"tickvals":[100000,200000,300000,400000],"categoryorder":"array","categoryarray":["100000","200000","300000","400000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Balance","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.764991704195307,16.0648257881014],"tickmode":"array","ticktext":["0","5","10","15"],"tickvals":[0,5,10,15],"categoryorder":"array","categoryarray":["0","5","10","15"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Percent %","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"10dce2f243e46":{"x":{},"fill":{},"y":{},"type":"bar"}},"cur_data":"10dce2f243e46","visdat":{"10dce2f243e46":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-edecc16a8286b6391390" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-edecc16a8286b6391390">{"x":{"data":[{"orientation":"v","width":[6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000],"base":[2.82057359563878,0.438492533775776,12.3014932448447,3.176108082484,2.97463853993837,5.77150983645414,2.2280161175634,3.72126096231334,3.05759658686893,2.74946669826973,2.96278739037687,3.29461957809908,3.60274946669827,2.2280161175634,2.33467646361697,3.53164256932922,0.722920123251955,4.34937188907324,2.52429485660109,1.67101208817255,2.58355060440863,1.4339890969424,1.07845461009718,1.67101208817255,0.794027020621,1.32732875088884,1.06660346053567,1.23251955439678,1.07845461009718,0.93624081535909,0.485897132021806,0.580706328513866,0.580706328513866,1.54064944299597,0.319981038160702,0.533301730267836,0.805878170182508,0.177767243422612,0.462194832898791],"x":[30000,40000,50000,60000,70000,80000,90000,100000,110000,120000,130000,140000,150000,160000,170000,180000,190000,200000,210000,220000,230000,240000,250000,260000,270000,280000,290000,300000,310000,320000,330000,340000,350000,360000,380000,390000,400000,410000,420000],"y":[1.01919886228964,0.154064944299597,2.99834083906139,0.758473571936478,0.734771272813463,1.20881725527376,0.557004029390851,0.758473571936478,0.414790234652761,0.414790234652761,0.474045982460299,0.616259777198388,0.616259777198388,0.296278739037687,0.225171841668642,0.557004029390851,0.189618392984119,0.402939085091254,0.355534486845224,0.14221379473809,0.319981038160702,0.213320692107134,0.0711068973690447,0.237022991230149,0.0711068973690447,0.14221379473809,0.130362645176582,0.118511495615075,0.0355534486845224,0.0355534486845224,0.0355534486845224,0.0474045982460298,0.0118511495615075,0.177767243422612,0.0118511495615075,0.0355534486845224,0.0829580469305523,0.0118511495615075,0.0355534486845224],"text":["Balance:  30000<br />Default: Default<br />(count)/sum(count) * 100:  1.01920","Balance:  40000<br />Default: Default<br />(count)/sum(count) * 100:  0.15406","Balance:  50000<br />Default: Default<br />(count)/sum(count) * 100:  2.99834","Balance:  60000<br />Default: Default<br />(count)/sum(count) * 100:  0.75847","Balance:  70000<br />Default: Default<br />(count)/sum(count) * 100:  0.73477","Balance:  80000<br />Default: Default<br />(count)/sum(count) * 100:  1.20882","Balance:  90000<br />Default: Default<br />(count)/sum(count) * 100:  0.55700","Balance: 100000<br />Default: Default<br />(count)/sum(count) * 100:  0.75847","Balance: 110000<br />Default: Default<br />(count)/sum(count) * 100:  0.41479","Balance: 120000<br />Default: Default<br />(count)/sum(count) * 100:  0.41479","Balance: 130000<br />Default: Default<br />(count)/sum(count) * 100:  0.47405","Balance: 140000<br />Default: Default<br />(count)/sum(count) * 100:  0.61626","Balance: 150000<br />Default: Default<br />(count)/sum(count) * 100:  0.61626","Balance: 160000<br />Default: Default<br />(count)/sum(count) * 100:  0.29628","Balance: 170000<br />Default: Default<br />(count)/sum(count) * 100:  0.22517","Balance: 180000<br />Default: Default<br />(count)/sum(count) * 100:  0.55700","Balance: 190000<br />Default: Default<br />(count)/sum(count) * 100:  0.18962","Balance: 200000<br />Default: Default<br />(count)/sum(count) * 100:  0.40294","Balance: 210000<br />Default: Default<br />(count)/sum(count) * 100:  0.35553","Balance: 220000<br />Default: Default<br />(count)/sum(count) * 100:  0.14221","Balance: 230000<br />Default: Default<br />(count)/sum(count) * 100:  0.31998","Balance: 240000<br />Default: Default<br />(count)/sum(count) * 100:  0.21332","Balance: 250000<br />Default: Default<br />(count)/sum(count) * 100:  0.07111","Balance: 260000<br />Default: Default<br />(count)/sum(count) * 100:  0.23702","Balance: 270000<br />Default: Default<br />(count)/sum(count) * 100:  0.07111","Balance: 280000<br />Default: Default<br />(count)/sum(count) * 100:  0.14221","Balance: 290000<br />Default: Default<br />(count)/sum(count) * 100:  0.13036","Balance: 300000<br />Default: Default<br />(count)/sum(count) * 100:  0.11851","Balance: 310000<br />Default: Default<br />(count)/sum(count) * 100:  0.03555","Balance: 320000<br />Default: Default<br />(count)/sum(count) * 100:  0.03555","Balance: 330000<br />Default: Default<br />(count)/sum(count) * 100:  0.03555","Balance: 340000<br />Default: Default<br />(count)/sum(count) * 100:  0.04740","Balance: 350000<br />Default: Default<br />(count)/sum(count) * 100:  0.01185","Balance: 360000<br />Default: Default<br />(count)/sum(count) * 100:  0.17777","Balance: 380000<br />Default: Default<br />(count)/sum(count) * 100:  0.01185","Balance: 390000<br />Default: Default<br />(count)/sum(count) * 100:  0.03555","Balance: 400000<br />Default: Default<br />(count)/sum(count) * 100:  0.08296","Balance: 410000<br />Default: Default<br />(count)/sum(count) * 100:  0.01185","Balance: 420000<br />Default: Default<br />(count)/sum(count) * 100:  0.03555"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(6,0,71,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Default","legendgroup":"Default","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000,6000],"base":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"x":[30000,40000,50000,60000,70000,80000,90000,100000,110000,120000,130000,140000,150000,160000,170000,180000,190000,200000,210000,220000,230000,240000,250000,260000,270000,280000,290000,300000,310000,320000,330000,340000,350000,360000,370000,380000,390000,400000,410000,420000],"y":[2.82057359563878,0.438492533775776,12.3014932448447,3.176108082484,2.97463853993837,5.77150983645414,2.2280161175634,3.72126096231334,3.05759658686893,2.74946669826973,2.96278739037687,3.29461957809908,3.60274946669827,2.2280161175634,2.33467646361697,3.53164256932922,0.722920123251955,4.34937188907324,2.52429485660109,1.67101208817255,2.58355060440863,1.4339890969424,1.07845461009718,1.67101208817255,0.794027020621,1.32732875088884,1.06660346053567,1.23251955439678,1.07845461009718,0.93624081535909,0.485897132021806,0.580706328513866,0.580706328513866,1.54064944299597,0.130362645176582,0.319981038160702,0.533301730267836,0.805878170182508,0.177767243422612,0.462194832898791],"text":["Balance:  30000<br />Default: Did not default<br />(count)/sum(count) * 100:  2.82057","Balance:  40000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.43849","Balance:  50000<br />Default: Did not default<br />(count)/sum(count) * 100: 12.30149","Balance:  60000<br />Default: Did not default<br />(count)/sum(count) * 100:  3.17611","Balance:  70000<br />Default: Did not default<br />(count)/sum(count) * 100:  2.97464","Balance:  80000<br />Default: Did not default<br />(count)/sum(count) * 100:  5.77151","Balance:  90000<br />Default: Did not default<br />(count)/sum(count) * 100:  2.22802","Balance: 100000<br />Default: Did not default<br />(count)/sum(count) * 100:  3.72126","Balance: 110000<br />Default: Did not default<br />(count)/sum(count) * 100:  3.05760","Balance: 120000<br />Default: Did not default<br />(count)/sum(count) * 100:  2.74947","Balance: 130000<br />Default: Did not default<br />(count)/sum(count) * 100:  2.96279","Balance: 140000<br />Default: Did not default<br />(count)/sum(count) * 100:  3.29462","Balance: 150000<br />Default: Did not default<br />(count)/sum(count) * 100:  3.60275","Balance: 160000<br />Default: Did not default<br />(count)/sum(count) * 100:  2.22802","Balance: 170000<br />Default: Did not default<br />(count)/sum(count) * 100:  2.33468","Balance: 180000<br />Default: Did not default<br />(count)/sum(count) * 100:  3.53164","Balance: 190000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.72292","Balance: 200000<br />Default: Did not default<br />(count)/sum(count) * 100:  4.34937","Balance: 210000<br />Default: Did not default<br />(count)/sum(count) * 100:  2.52429","Balance: 220000<br />Default: Did not default<br />(count)/sum(count) * 100:  1.67101","Balance: 230000<br />Default: Did not default<br />(count)/sum(count) * 100:  2.58355","Balance: 240000<br />Default: Did not default<br />(count)/sum(count) * 100:  1.43399","Balance: 250000<br />Default: Did not default<br />(count)/sum(count) * 100:  1.07845","Balance: 260000<br />Default: Did not default<br />(count)/sum(count) * 100:  1.67101","Balance: 270000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.79403","Balance: 280000<br />Default: Did not default<br />(count)/sum(count) * 100:  1.32733","Balance: 290000<br />Default: Did not default<br />(count)/sum(count) * 100:  1.06660","Balance: 300000<br />Default: Did not default<br />(count)/sum(count) * 100:  1.23252","Balance: 310000<br />Default: Did not default<br />(count)/sum(count) * 100:  1.07845","Balance: 320000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.93624","Balance: 330000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.48590","Balance: 340000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.58071","Balance: 350000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.58071","Balance: 360000<br />Default: Did not default<br />(count)/sum(count) * 100:  1.54065","Balance: 370000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.13036","Balance: 380000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.31998","Balance: 390000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.53330","Balance: 400000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.80588","Balance: 410000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.17777","Balance: 420000<br />Default: Did not default<br />(count)/sum(count) * 100:  0.46219"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(179,0,94,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"Did not default","legendgroup":"Did not default","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":121.826771653543,"r":75.5905511811023,"b":135.781109553087,"l":105.544889080646},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[7200,442800],"tickmode":"array","ticktext":["100000","200000","300000","400000"],"tickvals":[100000,200000,300000,400000],"categoryorder":"array","categoryarray":["100000","200000","300000","400000"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Balance","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.764991704195307,16.0648257881014],"tickmode":"array","ticktext":["0","5","10","15"],"tickvals":[0,5,10,15],"categoryorder":"array","categoryarray":["0","5","10","15"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":true,"linecolor":"rgba(0,0,0,1)","linewidth":0.66417600664176,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Percent %","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"65cb5da9c077":{"x":{},"fill":{},"y":{},"type":"bar"}},"cur_data":"65cb5da9c077","visdat":{"65cb5da9c077":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 </section>
 <section id="predictors" class="level2">
 <h2 data-anchor-id="predictors">Predictors</h2>
-<section id="categorical" class="level4">
-<h4 data-anchor-id="categorical">Categorical</h4>
+<section id="by-the-demographic" class="level3">
+<h3 data-anchor-id="by-the-demographic">By the demographic</h3>
+<blockquote class="blockquote">
+<p>Chi-Square tests</p>
+</blockquote>
 <section id="sex" class="level5">
 <h5 data-anchor-id="sex">Sex</h5>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>c1[[<span class="st">"p.value"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
 <table class="table">
 <tbody>
 <tr class="odd">
@@ -825,12 +790,6 @@ div.csl-indent {
 </section>
 <section id="education" class="level5">
 <h5 data-anchor-id="education">Education</h5>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>c2[[<span class="st">"p.value"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
 <table class="table">
 <tbody>
 <tr class="odd">
@@ -843,12 +802,6 @@ div.csl-indent {
 </section>
 <section id="marital-status" class="level5">
 <h5 data-anchor-id="marital-status">Marital Status</h5>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>c3[[<span class="st">"p.value"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
 <table class="table">
 <tbody>
 <tr class="odd">
@@ -861,19 +814,6 @@ div.csl-indent {
 <blockquote class="blockquote">
 <p>Logistic Regressions were determined by significance, residuals, ROC, and link function ; AIC is also provided to compare models.</p>
 </blockquote>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>l1<span class="ot">&lt;-</span><span class="fu">summary</span>(<span class="fu">glm</span>(Default <span class="sc">~</span> Sex <span class="sc">+</span> <span class="fu">relevel</span>(<span class="fu">factor</span>(Education), <span class="at">ref=</span><span class="st">"University"</span>) <span class="sc">+</span> <span class="fu">relevel</span>(<span class="fu">factor</span>(Marriage), <span class="at">ref=</span><span class="st">"Single"</span>), <span class="at">data =</span> cc, <span class="at">family =</span> binomial))</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span>(l1[[<span class="st">"coefficients"</span>]], <span class="at">scientific=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>l1[[<span class="st">"aic"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
 <p><strong>Baseline: Female, University, and Single.</strong></p>
 <table class="table">
 <tbody>
@@ -922,21 +862,8 @@ div.csl-indent {
 </ul>
 </section>
 </section>
-<section id="continuous" class="level3">
-<h3 data-anchor-id="continuous">Continuous</h3>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>l2<span class="ot">&lt;-</span><span class="fu">summary</span>(<span class="fu">glm</span>(Default <span class="sc">~</span> Balance <span class="sc">+</span> <span class="st">`</span><span class="at">2005-09-01 Payment</span><span class="st">`</span> <span class="sc">+</span> <span class="st">`</span><span class="at">2005-09-01 Status</span><span class="st">`</span> <span class="sc">+</span> <span class="st">`</span><span class="at">2005-08-01 Status</span><span class="st">`</span> <span class="sc">+</span> <span class="st">`</span><span class="at">2005-07-01 Status</span><span class="st">`</span> <span class="sc">+</span><span class="st">`</span><span class="at">2005-04-01 Status</span><span class="st">`</span> , <span class="at">data =</span> cc, <span class="at">family =</span> binomial))</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span>(l2[[<span class="st">"coefficients"</span>]],<span class="at">scientific=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>l2[[<span class="st">"aic"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
+<section id="by-the-numbers" class="level3">
+<h3 data-anchor-id="by-the-numbers">By the numbers</h3>
 <table class="table">
 <tbody>
 <tr class="odd">
@@ -997,19 +924,6 @@ div.csl-indent {
 </section>
 <section id="in-concert" class="level3">
 <h3 data-anchor-id="in-concert">In Concert</h3>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>l3<span class="ot">&lt;-</span><span class="fu">summary</span>(<span class="fu">glm</span>(Default <span class="sc">~</span> Balance <span class="sc">+</span> Sex <span class="sc">+</span> <span class="fu">relevel</span>(<span class="fu">factor</span>(Education), <span class="at">ref=</span><span class="st">"University"</span>) <span class="sc">+</span> <span class="fu">relevel</span>(<span class="fu">factor</span>(Marriage), <span class="at">ref=</span><span class="st">"Single"</span>) <span class="sc">+</span> <span class="st">`</span><span class="at">2005-09-01 Payment</span><span class="st">`</span> <span class="sc">+</span> <span class="st">`</span><span class="at">2005-09-01 Status</span><span class="st">`</span> <span class="sc">+</span> <span class="st">`</span><span class="at">2005-08-01 Status</span><span class="st">`</span> <span class="sc">+</span> <span class="st">`</span><span class="at">2005-07-01 Status</span><span class="st">`</span> <span class="sc">+</span><span class="st">`</span><span class="at">2005-04-01 Status</span><span class="st">`</span>, <span class="at">data =</span> cc, <span class="at">family =</span> binomial))</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span>(l3[[<span class="st">"coefficients"</span>]],<span class="at">scientific=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>l3[[<span class="st">"aic"</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
 <p><strong>Baseline: Female, University, and Single.</strong></p>
 <table class="table">
 <tbody>
