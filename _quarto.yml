@@ -1,7 +1,5 @@
 project:
   type: website
-  output-dir: docs
-
 website:
   title: "Default Predictors"
   search: false
@@ -15,9 +13,6 @@ website:
         href: https://www.linkedin.com/in/aidanastridge/
       - text: "Twitter" 
         href: https://twitter.com/aidanastridge
-      - text: "Website"
-        href: https://aidanastridge.com/
-      
         
 format:
   html:
@@ -28,7 +23,6 @@ format:
     anchor-sections: false
     toc-depth: 2
     linkcolor: "#060047"
-    
 
 editor: visual
 
