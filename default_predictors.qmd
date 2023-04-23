@@ -8,23 +8,23 @@ bibliography: references.bib
 
 ## Insight
 
-Based on statistical analyses and modeling of credit data, a higher credit balance and a higher payment made towards the previous month's bill are associated with a lower chance of defaulting on a credit account in the next month.
+Based on credit data, a higher credit balance and a higher payment made towards the previous month's bill are associated with a lower chance of defaulting on a credit account in the next month.
 
 Compared to the average borrower of Female, Single, and University educated: Male borrowers increased defaulting chances, Married borrowers increased defaulting chances, and graduates that considered themselves "Other" decreased defaulting chances.
 
-While delays in payment in September, July, and April are significant in predicting default for October; August predicts the opposite.
+Delays in payment in September, July, and April are significant in predicting default for October. Surprisingly, August predicts the opposite.
 
 ## About the Data
 
-The [data-set](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients) was acquired from a research that focused on predicting the probability of default payments among customers in Taiwan using six data mining methods. Since the actual probability of default was unknown, the research introduced a new method called the "Sorting Smoothing Method" to estimate the real probability of default.
+The [data set](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients) was acquired from a research that focused on predicting the probability of default payments among customers in Taiwan using six data mining methods. Since the actual probability of default was unknown, the research introduced a new method called the "Sorting Smoothing Method" to estimate probability of default.
 
-The study then used the estimated probability of default as the response variable and the predictive probability of default as the independent variable to develop a simple linear regression model. The results indicate that the artificial neural network method has the highest coefficient of determination, with a regression intercept close to zero and a regression coefficient close to one. As a result, among the six data mining techniques compared, the artificial neural network method is the only one that can accurately estimate the real probability of default.
+They then used the estimated probability as the response variable and the predictive probability of default as the independent variable in a simple linear regression. What they found was that an artificial neural network method had the highest coefficient of determination, with a regression intercept close to zero and a regression coefficient close to one. As a result, the artificial neural network method is the one they chose.
 
 [@yeh2009]
 
 > The data-set originally had 30,000 values; 70% of the data was taken out by filtering out below 5% and above 95% from a majority of the continuous variables. However, I've elected to keep the payment delays per month as it takes out to many variables
 
-#### Categories
+#### Variables
 
 ```{r include=FALSE}
 library(tidyverse)
@@ -33,10 +33,11 @@ library(scales)
 library(plotly)
 library(ggthemes)
 library(knitr)
+library(kableExtra)
 options(digits = 4)
 options(scipen = 999)
 
-cc <- read.csv("/Users/aidanastridge/Documents/Data Analysis/Credit Card/default of credit card clients.csv")
+cc <- read.csv("/Users/aidanastridge/Documents/default of credit card clients.csv")
 
 #Data Wrangling
 
@@ -109,54 +110,51 @@ bd$`2005-04-01 Status`[bd$`2005-04-01 Status` < 1] <- "0"
 
 ```{r}
 #| echo: false
-cd <- cc %>% 
-  mutate( Default = recode(Default, `1` = "Default", `0`= "Did not default" ))
-
-kable(prop.table(table(factor(cd$Default, levels = c("Default", "Did not default"))))*100, col.names=NULL, caption = "Default next month by Percent")
+#| error: false
+kable(bd %>% group_by(Default) %>% summarize(Count=n()) %>% mutate(Percent = Count/sum(Count)*100))
 ```
 
 ```{r}
 #| echo: false
-kable(prop.table(table(factor(cc$Marriage, levels = rev(c("Others", "Single", "Married")))))*100, col.names=NULL, caption = "Marital Status by Percent")
+#| warning: false
+kable(bd %>% group_by(Default,Marriage) %>% summarize(Count=n()) %>% mutate("Group %" = Count/sum(Count)*100, "Global %" = Count/nrow(bd)*100) %>% mutate_if(is.numeric, round, 2), col.names=c("Default","Marital Status","Count","Group %","Global %"), caption = "Marital Status")
+kable(bd %>% group_by(Default, Sex) %>% summarize(Count=n()) %>% mutate("Group %" = Count/sum(Count)*100, "Global %" = Count/nrow(bd)*100) %>% mutate_if(is.numeric, round, 2), caption = "Sex")
+kable(bd %>% group_by(Default, Education) %>% summarize(Count=n()) %>% mutate("Group %" = Count/sum(Count)*100, "Global %" = Count/nrow(bd)*100) %>% mutate_if(is.numeric, round, 2), caption = "Education")
+
 ```
 
 ```{r}
 #| echo: false
-kable(prop.table(table(factor(cc$Education, levels = rev(c("Others", "High School", "University", "Graduate")))))*100, col.names=NULL, caption = "Highest Educational Level by Percent")
+kable(bd %>%
+  group_by(bd$Default) %>%
+  summarize(Balance=mean(Balance), Age=mean(Age)), col.names=c("","Balance","Age"), caption = "Balance and Age")
+
 ```
+
+
+| Category       | Expected Values |
+|----------------|-----------------|
+| Default Status | Did not default |
+| Age            | 34              |
+| Sex            | Female          |
+| Education      | University      |
+| Marital Status | Single          |
+| Balance        | 147,357         |
+
+
+#### Bills, Payments, and Delays
 
 ```{r}
 #| echo: false
-kable(prop.table(table(factor(cc$Sex, levels = c("Male", "Female"))))*100, col.names=NULL, caption = "Sex by Percent")
-```
 
-#### Expected Values
+kable(bd %>%
+  group_by(bd$Default) %>%
+  summarize("04/2005"=mean(cc$`2005-04-01 Bill`),"05/2005"=mean(cc$`2005-05-01 Bill`), "06/2005"=mean(cc$`2005-06-01 Bill`),"07/2005"=mean(cc$`2005-07-01 Bill`),"08/2005"=mean(cc$`2005-08-01 Bill`),"09/2005"=mean(cc$`2005-09-01 Bill`)), caption = "April 2004 - September 2005 Bill", col.names=NULL)
 
-```{r}
-#| echo: false
-kable(summary(cc[c('Balance', 'Age')]))
-```
+kable(bd %>%
+  group_by(bd$Default) %>%
+  summarize("04/2005"=mean(cc$`2005-04-01 Payment`),"05/2005"=mean(cc$`2005-05-01 Payment`), "06/2005"=mean(cc$`2005-06-01 Payment`),"07/2005"=mean(cc$`2005-07-01 Payment`),"08/2005"=mean(cc$`2005-08-01 Payment`),"09/2005"=mean(cc$`2005-09-01 Payment`)), caption = "April 2004 - September 2005 Payment", col.names=NULL)
 
-```{r}
-#| echo: false
-kable(summary(rev(cc[13:24])),, caption = "April 2005 — September 2005 in Payments and Bills")
-```
-
-| Category                              | Expected Value  |
-|---------------------------------------|-----------------|
-| Default Status                        | Did not default |
-| Age                                   | 34              |
-| Sex                                   | Female          |
-| Education                             | University      |
-| Marital Status                        | Single          |
-| Balance                               | 147,357         |
-| Growth in Payment (April - September) | 18%             |
-| Growth in Bill (April - September)    | 27%             |
-
-#### Payment Delays
-
-```{r}
-#| echo: false
 kable(table(bd$Default,bd$`2005-04-01 Status`), "pipe", col.names = c("Pay duly","2 month delay", "3 month delay", "4 month delay","5 month delay","6 month delay"), caption = "April 2005 Payment Delays")
 kable(table(bd$Default,bd$`2005-05-01 Status`), "pipe", col.names= c("Pay duly","2 month delay", "3 month delay", "4 month delay","5 month delay"), caption = "May 2005 Payment Delays")
 kable(table(bd$Default,bd$`2005-06-01 Status`), "pipe", col.names= c("Pay duly","2 month delay", "3 month delay", "4 month delay"), caption = "June 2005 Payment Delays")
@@ -165,64 +163,7 @@ kable(table(bd$Default,bd$`2005-08-01 Status`), "pipe", col.names= c( "Pay duly"
 kable(table(bd$Default,bd$`2005-09-01 Status`), "pipe", col.names= c("Pay duly","1 month delay","2 month delay", "3 month delay", "4 month delay"), caption = "September 2005 Payment Delays")
 ```
 
-#### Defaults by Category
-
-```{r}
-#| echo: false
-sd <- cc %>% 
-  group_by(Default) %>% 
-  count(Sex) %>% 
-  mutate(Percent = n / nrow(cc) *100, Default = recode(Default, `1` = "Default", `0`= "Did not default" ))
-
-sd$Percent <- round(sd$Percent,2)
-ggplotly(ggplot(sd, aes(x = Sex, y = Percent, fill = Default)) 
-         + geom_bar(stat = "identity")
-         + scale_fill_manual(values=cols3)
-         + labs(y ="Percent %", x="") 
-          + theme_classic() + labs(fill='') +
-           theme(plot.title = element_text(hjust = 0.5), plot.margin = margin(2, 2, 2, 2, "cm")))
-
-```
-
-```{r}
-#| echo: false
-#Marriage*Default
-md <- cc %>% 
-  group_by(Default) %>% 
-  count(Marriage) %>% 
-  mutate(Percent = n / nrow(cc) *100, Default = recode(Default, `1` = "Default", `0`= "Did not default" ))
-
-md$Percent <- round(md$Percent,2)
-md$Marriage<- factor(md$Marriage, levels = c("Others", "Single", "Married"))
-
-ggplotly(ggplot(md, aes(x = Marriage, y = Percent, fill = Default)) 
-         + geom_bar(stat = "identity")
-         + scale_fill_manual(values=cols3)
-         + labs(y ="Percent %", x="") 
-         + theme_classic() + labs(fill='') +
-           theme(plot.title = element_text(hjust = 0.5), plot.margin = margin(2, 2, 2, 2, "cm")))
-
-```
-
-```{r}
-#| echo: false
-#Education*Default
-ed <- cc %>% 
-  group_by(Default) %>% 
-  count(Education) %>% 
-  mutate(Percent = n / nrow(cc) *100, Default = recode(Default, `1` = "Default", `0`= "Did not default" ))
-
-ed$Percent <- round(ed$Percent,2)
-ed$Education <- factor(ed$Education, levels = c("Others", "High School", "University", "Graduate"))
-
-ggplotly(ggplot(ed, aes(x = Education, y = Percent, fill = Default)) 
-         + geom_bar(stat = "identity")
-         + scale_fill_manual(values=cols3)
-         + labs(y ="Percent %", x="") 
-         + theme_classic() + labs(fill='') +
-           theme(plot.title = element_text(hjust = 0.5), plot.margin = margin(2, 2, 2, 2, "cm")))
-
-```
+#### Defaulting next month by Age and Balance
 
 ```{r}
 #| echo: false
@@ -255,10 +196,13 @@ ggplotly(ggplot(bd, aes(x = Balance, fill = Default))
 
 ## Predictors
 
-#### Categorical
+### By the demographic
 
-```{r}
-#| echo: false
+> Chi-Square tests
+
+```{r include=FALSE}
+#| echo: true
+#| #| output: false
 c1 <- chisq.test(cc$Default,cc$Sex)
 c2 <- chisq.test(cc$Default,cc$Education)
 c3 <- chisq.test(cc$Default,cc$Marriage)
@@ -266,7 +210,7 @@ c3 <- chisq.test(cc$Default,cc$Marriage)
 
 ##### Sex
 
-```{r}
+```{r include=FALSE}
 #| code-fold: true
 #| echo: true
 #| output: false
@@ -281,7 +225,7 @@ Defaulting next month and Sex are related.
 
 ##### Education
 
-```{r}
+```{r include=FALSE}
 #| code-fold: true
 #| echo: true
 #| output: false
@@ -296,7 +240,7 @@ Defaulting next month and Education are related.
 
 ##### Marital Status
 
-```{r}
+```{r include=FALSE}
 #| code-fold: true
 #| echo: true
 #| output: false
@@ -311,7 +255,7 @@ Defaulting next month and Marital Status are related.
 
 > Logistic Regressions were determined by significance, residuals, ROC, and link function ; AIC is also provided to compare models.
 
-```{r}
+```{r include=FALSE}
 #| code-fold: true
 #| echo: true
 #| output: false
@@ -320,7 +264,7 @@ l1<-summary(glm(Default ~ Sex + relevel(factor(Education), ref="University") + r
 format(l1[["coefficients"]], scientific=TRUE)
 ```
 
-```{r}
+```{r include=FALSE}
 #| code-fold: true
 #| echo: true
 #| output: false
@@ -328,7 +272,7 @@ l1[["aic"]]
 
 ```
 
-**Baseline: Female; University; Single**
+**Baseline: Female, University, and Single.**
 
 |      |          |
 |------|----------|
@@ -349,9 +293,9 @@ Compared to the baseline, the chances of defaulting next months payment are pred
 
 -   Decrease with Education being Graduate or Others.
 
-### Continuous
+### By the numbers
 
-```{r}
+```{r include=FALSE}
 #| code-fold: true
 #| echo: true
 #| output: false
@@ -360,7 +304,7 @@ l2<-summary(glm(Default ~ Balance + `2005-09-01 Payment` + `2005-09-01 Status` +
 format(l2[["coefficients"]],scientific=TRUE)
 ```
 
-```{r}
+```{r include=FALSE}
 #| code-fold: true
 #| echo: true
 #| output: false
@@ -394,7 +338,7 @@ Age is not a significant predictor.
 
 ### In Concert
 
-```{r}
+```{r include=FALSE}
 #| code-fold: true
 #| echo: true
 #| output: false
@@ -402,14 +346,14 @@ l3<-summary(glm(Default ~ Balance + Sex + relevel(factor(Education), ref="Univer
 format(l3[["coefficients"]],scientific=TRUE)
 ```
 
-```{r}
+```{r include=FALSE}
 #| code-fold: true
 #| echo: true
 #| output: false
 l3[["aic"]]
 ```
 
-**Baseline: Female; University; Single**
+**Baseline: Female, University, and Single.**
 
 |     |          |
 |-----|----------|
@@ -443,12 +387,8 @@ The chances of defaulting next months payment are significantly predicted to:
 
 ## Conclusion
 
-> While the final model has a better AIC it also has close to double the variables of the prior model for little gain.
-
-Based on statistical analyses and modeling of credit data, a higher credit balance and a higher payment made towards the previous month's bill are associated with a lower chance of defaulting on a credit account in the next month.
-
-A higher credit balance indicates that the borrower has more available credit and is not utilizing their full credit limit. Additionally, making a higher payment towards the previous month's bill suggests that the borrower is able to meet their financial obligations and is less likely to fall behind on their payments.
+Based on the data, a higher credit balance and a higher payment made towards the previous month's bill are associated with a lower chance of defaulting on a credit account in the next month.
 
 While delays in payment are significant in predicting default for September, July, and April; August predicts no default in October.
 
-Compared to the expected borrower of Female, Single, and University educated: Male borrowers increased defaulting chances, Married borrowers increased defaulting chances, and graduates that considered themselves "Other" decreased defaulting chances.
+Compared to the expected borrower of Female, University educated, and Single: Male borrowers increased defaulting chances, Married borrowers increased defaulting chances, and graduates that considered themselves "Other" decreased defaulting chances.
