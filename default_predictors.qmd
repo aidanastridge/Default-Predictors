@@ -111,15 +111,15 @@ bd$`2005-04-01 Status`[bd$`2005-04-01 Status` < 1] <- "0"
 ```{r}
 #| echo: false
 #| error: false
-kable(bd %>% group_by(Default) %>% summarize(Count=n()) %>% mutate(Percent = Count/sum(Count)*100))
+kable(bd %>% group_by(Default) %>% summarize(Count=n()) %>% mutate("Global %" = Count/sum(Count)*100))
 ```
 
 ```{r}
 #| echo: false
 #| warning: false
-kable(bd %>% group_by(Default,Marriage) %>% summarize(Count=n()) %>% mutate("Group %" = Count/sum(Count)*100, "Global %" = Count/nrow(bd)*100) %>% mutate_if(is.numeric, round, 2), col.names=c("Default","Marital Status","Count","Group %","Global %"), caption = "Marital Status")
-kable(bd %>% group_by(Default, Sex) %>% summarize(Count=n()) %>% mutate("Group %" = Count/sum(Count)*100, "Global %" = Count/nrow(bd)*100) %>% mutate_if(is.numeric, round, 2), caption = "Sex")
-kable(bd %>% group_by(Default, Education) %>% summarize(Count=n()) %>% mutate("Group %" = Count/sum(Count)*100, "Global %" = Count/nrow(bd)*100) %>% mutate_if(is.numeric, round, 2), caption = "Education")
+kable(bd %>% group_by(Default,Marriage) %>% summarize(Count=n()) %>% mutate("Group %" = Count/sum(Count)*100, "Global %" = Count/nrow(bd)*100) %>% mutate_if(is.numeric, round, 2), col.names=c("Default","Marital Status","Count","Default Group %","Global %"), caption = "Marital Status")
+kable(bd %>% group_by(Default, Sex) %>% summarize(Count=n()) %>% mutate("Default Group %" = Count/sum(Count)*100, "Global %" = Count/nrow(bd)*100) %>% mutate_if(is.numeric, round, 2), caption = "Sex")
+kable(bd %>% group_by(Default, Education) %>% summarize(Count=n()) %>% mutate("Default Group %" = Count/sum(Count)*100, "Global %" = Count/nrow(bd)*100) %>% mutate_if(is.numeric, round, 2), caption = "Education")
 
 ```
 
