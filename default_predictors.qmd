@@ -37,7 +37,7 @@ library(kableExtra)
 options(digits = 4)
 options(scipen = 999)
 
-cc <- read.csv("/Users/aidanastridge/Documents/default of credit card clients.csv")
+cc <- read.csv("~/Documents/Data Analysis/default_predictors/default of credit card clients.csv")
 
 #Data Wrangling
 
