@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: docs
 website:
-  title: "Default Predictors"
+  title: "Aidan Astridge"
   search: false
   navbar:
     title: false

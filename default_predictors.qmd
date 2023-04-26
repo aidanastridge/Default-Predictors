@@ -1,5 +1,5 @@
 ---
-title: "Default Predictors"
+title: "Who defaults next month?"
 author: "Aidan Astridge"
 date: 2023-04-18
 subtitle: "April 2005 — September 2005 Taiwanese Consumer Credit Payments"
@@ -193,6 +193,8 @@ ggplotly(ggplot(bd, aes(x = Balance, fill = Default))
 ```
 
 ## Predictors
+
+> Significance level: .05
 
 ### By the demographic
 
