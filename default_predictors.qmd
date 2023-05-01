@@ -1,5 +1,5 @@
 ---
-title: "Who defaults next month?"
+title: "Who defaults next?"
 author: "Aidan Astridge"
 date: 2023-04-18
 subtitle: "April 2005 — September 2005 Taiwanese Consumer Credit Payments"

@@ -17,3 +17,17 @@ a.nav-link:hover {
 .level2.h2 {
   color:  #060047 !important;
 }
+
+  .title {
+    font-size: 3em;
+    color: #060047;
+  }
+
+  .subtitle {
+    font-size: 2em;
+  }
+
+  .quarto-title-author {
+    color: #060047;
+  }
+}
